@@ -1,0 +1,52 @@
+openapi: "3.0.1"
+info:
+  title: "api-payments"
+  version: "1.0.0"
+paths:
+  /mobileappbridge/v1/pub:
+    x-amazon-apigateway-any-method:
+      responses:
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+      x-amazon-apigateway-integration:
+        type: "http_proxy"
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://payments-dev.kumuapi.com/mobileappbridge/v1/pub"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+  /mobileappbridge/v1/pub/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        type: "http_proxy"
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://payments-dev.kumuapi.com/mobileappbridge/v1/pub/{proxy}"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        cacheNamespace: "rmn03q"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+components:
+  schemas:
+    Empty:
+      title: "Empty Schema"
+      type: "object"

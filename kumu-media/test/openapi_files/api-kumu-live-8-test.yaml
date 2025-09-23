@@ -1,0 +1,59 @@
+openapi: "3.0.1"
+info:
+  title: "api-kumu-live-8-test"
+  version: "1.0.0"
+paths:
+  /:
+    x-amazon-apigateway-any-method:
+      responses:
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://api-kumu-live-upgraded-dev.kumuapi.com"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        type: "http_proxy"
+  /{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://api-kumu-live-upgraded-dev.kumuapi.com/{proxy}"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        cacheNamespace: "u50g33"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+components:
+  schemas:
+    Empty:
+      title: "Empty Schema"
+      type: "object"

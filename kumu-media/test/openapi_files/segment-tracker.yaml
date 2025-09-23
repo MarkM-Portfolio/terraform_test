@@ -1,0 +1,34 @@
+openapi: "3.0.1"
+info:
+  title: "segment-tracker"
+  version: "1.0.0"
+paths:
+  /:
+    x-amazon-apigateway-any-method:
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://segment-tracker-dev-int.kumuapi.com"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://segment-tracker-dev-int.kumuapi.com/{proxy}"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+components: {}

@@ -1,0 +1,446 @@
+openapi: "3.0.1"
+info:
+  title: "api-kumuapi"
+  version: "1.0.0"
+paths:
+  /:
+    x-amazon-apigateway-any-method:
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com/{proxy}"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /v1/sig:
+    x-amazon-apigateway-any-method:
+      responses:
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+      x-amazon-apigateway-integration:
+        type: "http_proxy"
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-public-group.kumuapi.com/v1/sig"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+  /v1/sig/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-public-group.kumuapi.com/v1/sig/{proxy}"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        cacheNamespace: "pn0diq"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+  /v1/search:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-search.kumuapi.com/v1/search"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        cacheNamespace: "pn0diq"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+  /v1/search/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-search.kumuapi.com/v1/search/{proxy}"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        cacheNamespace: "pn0diq"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+  /group:
+    x-amazon-apigateway-any-method:
+      responses:
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-group.kumuapi.com/group"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        type: "http_proxy"
+  /group/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-group.kumuapi.com/group/{proxy}"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        cacheNamespace: "idjnl2"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+  /agorachat:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-campaigns.kumuapi.com/agorachat"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /agorachat/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-campaigns.kumuapi.com/agorachat/{proxy}"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /set-privacy:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com/user/set-privacy"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /message-routing:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-campaigns.kumuapi.com/message-routing"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /message-sent-callback:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-campaigns.kumuapi.com/message-sent-callback"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /message-sent-callback/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-campaigns.kumuapi.com/message-sent-callback/{proxy}"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /message-routing/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-campaigns.kumuapi.com/message-routing/{proxy}"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /campaign:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-campaigns.kumuapi.com/campaign"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /campaign/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-campaigns.kumuapi.com/campaign/{proxy}"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /broadcast/recommendation:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com/v2/broadcast/recommendation"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /broadcast/remind:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com/v2/broadcast/remind"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /site/qr-sign-in:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com/web/site/qr-sign-in"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /site/qr-sign-out:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com/web/site/qr-sign-out"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /log/text-moderation:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com/v1/log/text-moderation"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /follow-is-live:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://dev-api-ec2.kumuapi.com/feed/follow-is-live"
+        passthroughBehavior: "when_no_match"
+        timeoutInMillis: 29000
+        type: "http_proxy"
+  /search:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-search.kumuapi.com/search"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        cacheNamespace: "pn0diq"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+  /search/{proxy+}:
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      x-amazon-apigateway-integration:
+        connectionId: "hr7zwh"
+        httpMethod: "ANY"
+        uri: "http://dev-api-search.kumuapi.com/search/{proxy}"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        connectionType: "VPC_LINK"
+        cacheNamespace: "pn0diq"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+components:
+  schemas:
+    Empty:
+      title: "Empty Schema"
+      type: "object"
+x-amazon-apigateway-binary-media-types:
+- "multipart/form-data"

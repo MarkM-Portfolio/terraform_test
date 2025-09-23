@@ -1,0 +1,17 @@
+*.0 linguist-language=0 linguist-vendored=false
+*.0_x5 linguist-language=0_x5 linguist-vendored=false
+*.1_x5 linguist-language=1_x5 linguist-vendored=false
+*.2_x5 linguist-language=2_x5 linguist-vendored=false
+*.editorconfig linguist-language=Editorconfig linguist-vendored=false
+*.gitignore linguist-language=Git linguist-vendored=false
+*.hcl linguist-language=Hcl linguist-vendored=false
+*.json linguist-language=JSON linguist-vendored=false
+*.md linguist-language=Markdown linguist-vendored=false
+*.tf linguist-language=Terraform linguist-vendored=false
+*.tfstate linguist-language=Terraform State File linguist-vendored=false
+*.tpl linguist-language=Template File linguist-vendored=false
+*.xml linguist-language=Xml linguist-vendored=false
+*.yml linguist-language=YAML linguist-vendored=false
+terraform_test/kumu-media/test/.terraform/providers/registry.terraform.io/gavinbunney/kubectl/1.14.0/darwin_arm64/terraform-provider-kubectl_v1.14.0 filter=lfs diff=lfs merge=lfs -text
+terraform_test/kumu-media/test/.terraform/providers/registry.terraform.io/hashicorp/aws/4.8.0/darwin_arm64/terraform-provider-aws_v4.8.0_x5 filter=lfs diff=lfs merge=lfs -text
+terraform_test/kumu-media/test/.terraform/providers/registry.terraform.io/hashicorp/helm/2.5.0/darwin_arm64/terraform-provider-helm_v2.5.0_x5 filter=lfs diff=lfs merge=lfs -text
